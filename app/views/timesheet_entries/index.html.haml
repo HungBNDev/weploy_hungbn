@@ -1,0 +1,8 @@
+#actions
+  = link_to('Create Timesheet Entry', { action: 'new' }, class: 'btn btn-primary')
+%p{:style => "color: green"}= notice
+%h2 Timesheet Entries
+
+#timesheet-entries.list
+  - @timesheet_entries.each do |timesheet_entry|
+    = render timesheet_entry
