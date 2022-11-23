@@ -3,22 +3,28 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+## Docker Compose
+You need to install docker-compose before run project. https://docs.docker.com/compose/install/
 
 * Ruby version
 
-* System dependencies
+## Database creation & initialization
+You need to create database and run migrations
 
-* Configuration
+```bash
+docker compose run web rake db:create db:migrate
+```
 
-* Database creation
+## How to run the test suite
+We will run the test suite via docker compose.
 
-* Database initialization
+```bash
+docker compose run web bundle exec rspec
+```
 
-* How to run the test suite
+## Start Application
+The database need to be created and migrated already before we init the application.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+docker compose up --build
+```
