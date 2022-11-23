@@ -1,0 +1,25 @@
+.timesheet-entries{ data: { controller: 'timesheet' } }
+  = form_with(model: timesheet_entry, class: 'form-control') do |form|
+    - if timesheet_entry.errors.any?
+      %div{style: "color: red"}
+        %h2
+          = pluralize(timesheet_entry.errors.count, "error")
+          prohibited this timesheet entry from being saved:
+        %ul
+          - timesheet_entry.errors.each do |error|
+            %li= error.full_message
+    .row
+      .col-md-2= form.label :date
+      .col-md-2= form.date_field :date_entry
+    .row
+      .col-md-2= form.label 'Start Time'
+      .col-md-2
+        = form.time_field :time_start, class: 'select-time'
+        = form.hidden_field :time_start, class: 'actual-time-start'
+    .row
+      .col-md-2= form.label 'Finish Time'
+      .col-md-2
+        = form.time_field :time_end, class: 'select-time'
+        = form.hidden_field :time_end, class: 'actual-time-end'
+    %actions
+      = form.submit
