@@ -28,3 +28,6 @@ The database need to be created and migrated already before we init the applicat
 ```bash
 docker compose up --build
 ```
+
+## This is the image for Allen-Interval-Algebra Algorithm i used for calculating amount.
+![alt text](https://i.stack.imgur.com/0c6q0.png)
